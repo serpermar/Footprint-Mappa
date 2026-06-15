@@ -1,0 +1,143 @@
+/* FileUploader.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a1a1aa; /* zinc-400 */
+}
+
+.dropzone {
+  border: 1px solid rgba(39, 39, 42, 0.8);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 115px;
+  background-color: transparent;
+}
+
+.dropzone:hover:not(.dragActive) {
+  border-color: #3f3f46; /* zinc-700 */
+  background-color: rgba(24, 24, 27, 0.2); /* zinc-900/20 */
+}
+
+.dragActive {
+  border-color: #ff7983;
+  background-color: rgba(4, 18, 130, 0.1); /* #041282/10 */
+  box-shadow: 0 0 15px rgba(255, 121, 131, 0.1);
+}
+
+.hasFile {
+  border-color: #3f3f46; /* zinc-700 */
+  background-color: rgba(24, 24, 27, 0.4); /* zinc-900/40 */
+}
+
+.hasFile:hover {
+  border-color: #52525b; /* zinc-600 */
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.fileInfo {
+  animation: fadeIn 0.2s ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconCircle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: #18181b; /* zinc-900 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #27272a; /* zinc-800 */
+  margin-bottom: 0.5rem;
+}
+
+.fileCheckIcon {
+  width: 1rem;
+  height: 1rem;
+  color: #fca65e;
+}
+
+.fileName {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #e4e4e7; /* zinc-200 */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 0.75rem;
+}
+
+.replaceHint {
+  font-size: 10px;
+  color: #71717a; /* zinc-500 */
+  margin-top: 0.25rem;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.uploadIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #71717a; /* zinc-500 */
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.emptyState:hover .uploadIcon {
+  color: #a1a1aa; /* zinc-400 */
+}
+
+.primaryText {
+  font-size: 0.75rem;
+  color: #e4e4e7; /* zinc-300 */
+}
+
+.browseLink {
+  color: #ff7983;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.subText {
+  font-size: 9px;
+  color: #71717a; /* zinc-500 */
+  margin-top: 0.25rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
