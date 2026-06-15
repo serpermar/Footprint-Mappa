@@ -9,6 +9,7 @@ import FileUploader from '../FileUploader/FileUploader';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import ReportDocument from '../../pdf/ReportDocument';
 import { toPng } from 'html-to-image';
+import mappaLogo from '../../../img/mappa.jpg';
 
 import styles from './Dashboard.module.css';
 
@@ -176,17 +177,16 @@ export default function Dashboard() {
 
   return (
     <div className={styles.dashboardContainer}>
-
       {/* SIDEBAR */}
       <aside className={styles.sidebar}>
         <div className="space-y-5">
           <div className={styles.brandHeader}>
-            <div className={styles.brandIconContainer}>
-              <CloudLightning className="w-4 h-4 text-zinc-950 stroke-[2.5]" />
-            </div>
             <div>
-              <h1 className={styles.brandTitle}>Footprint Mappa</h1>
-              <p className={styles.brandSub}>Report Configuration Engine</p>
+              <img
+                src={mappaLogo.src} 
+                alt="Mappa Corporate Logo" 
+                className={styles.mappaLogoSidebar}
+              />
             </div>
           </div>
 
@@ -208,7 +208,6 @@ export default function Dashboard() {
           </div>
 
           <div className="space-y-2">
-            <h3 className={styles.sectionTitle}>1. Data Ingestion</h3>
             {activeTab === 'OCF' ? (
               <FileUploader
                 label="Load OCF Inventory (.csv)"
@@ -243,7 +242,7 @@ export default function Dashboard() {
           </div>
 
           <div className="space-y-2.5">
-            <h3 className={styles.sectionTitle}>2. Layout Parameters</h3>
+            <h3 className={styles.sectionTitle}><strong>Layout Parameters</strong></h3>
             <div className={styles.configCard}>
               <div className={styles.interactiveRow}>
                 <span className="text-xs font-medium text-zinc-300">Distribution Charts</span>
@@ -267,7 +266,7 @@ export default function Dashboard() {
           </div>
 
           <div className="space-y-2.5">
-            <h3 className={styles.sectionTitle}>3. AI Coprocessor & Meta</h3>
+            <h3 className={styles.sectionTitle}><strong>AI Coprocessor</strong></h3>
             <div className={styles.configCard}>
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}><User className="w-3 h-3" /> Lead Environmental Auditor</label>

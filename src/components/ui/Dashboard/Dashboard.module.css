@@ -579,3 +579,14 @@
   color: var(--relats-red);
   letter-spacing: 0.05em;
 }
+
+
+/* Logo de Mappa */
+.mappaLogoSidebar {
+  height: 130px;              
+  max-width: 100%;            
+  margin: 14px auto 0 auto;   
+  opacity: 0.95;             
+  object-fit: contain; 
+  display: block;
+}
