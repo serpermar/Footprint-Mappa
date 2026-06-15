@@ -114,11 +114,13 @@ export default function Dashboard() {
     setIsSaving(true);
 
     const isOCF = activeTab === 'OCF';
-  
-  // Endpoints Xano
+
+    const baseUrl = process.env.NEXT_PUBLIC_XANO_API_URL || 'https://x8ki-letl-twmt.n7.xano.io/api:uK5pIZol';
+
+    // Endpoints Xano parametrizados
     const endpoint = isOCF
-      ? 'https://x8ki-letl-twmt.n7.xano.io/api:uK5pIZol/save_report'
-      : 'https://x8ki-letl-twmt.n7.xano.io/api:uK5pIZol/save_report_pcf';
+      ? `${baseUrl}/save_report`
+      : `${baseUrl}/save_report_pcf`;
 
     let entityOrProductVal = "Unspecified";
     if (isOCF && ocfData && ocfData.length > 0) {
