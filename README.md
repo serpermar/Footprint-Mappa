@@ -4,7 +4,7 @@ Descripción del Proyecto
 Este repositorio contiene una web app y prototipo de ingeniería diseñado para transformar archivos log descentralizados de cumplimiento ambiental (CSVs) en informes PDF de auditoría de carbono de nivel corporativo, permitiendo la generación de documentos de huella de carbono (OCF y/o PCF) en formato PDF, y ha sido maquetado bajo las directrices de marca de Mappa e integrado en un esquema de co-branding con su socio industrial Relats.
 
 ## 1. Arquitectura y Alcance de la Solución
-La solución se diseñó integrando los tres niveles de ambición del briefing para ofrecer una plataforma completa de generación de informes de huella de carbono. Incluye la ingesta y validación automatizada de datos ambientales mediante tipado estricto en TypeScript (Camino A), una interfaz interactiva alineada con la identidad visual de Mappa que permite personalizar el contenido del informe en tiempo real (Camino B), y una capa de inteligencia basada en IA capaz de analizar los datos cargados y generar recomendaciones de descarbonización adaptadas al contexto industrial de la organización (Camino C).
+He diseñado una web app integrando los tres niveles de ambición del briefing para ofrecer una plataforma completa de generación de informes de huella de carbono. Incluye la ingesta y validación automatizada de datos ambientales mediante tipado estricto en TypeScript (Camino A), una interfaz interactiva alineada con la identidad visual de Mappa que permite personalizar el contenido del informe en tiempo real (Camino B), y una capa de inteligencia basada en IA capaz de analizar los datos cargados y generar recomendaciones de descarbonización adaptadas al contexto industrial de la organización (Camino C).
 
 ## 1.5. Integración de backend (API Xano) y modelo de datos
 
@@ -51,8 +51,8 @@ El desarrollo se llevó a cabo bajo un modelo de ingeniería asistida por IA sup
   * Despliegue continuo en Vercel con gestión de variables de entorno
     
 - **Uso de IA (aceleración y soporte técnico):**
-  * **Google Gemini:** se utilizó para generar estructuras iniciales de código, tipado en TypeScript para modelos de carbono, ajustes de estilos compatibles con React-PDF y formateo regional.
-  * **DeepSeek:** se empleó de forma puntual para auditorías de código, enfocadas en detectar posibles problemas de rendimiento, memoria o concurrencia en funciones asíncronas del backend.
+  * **Google Gemini:** se ha utilizado para generar estructuras iniciales de código tipado en TypeScript para modelos de carbono, ajustes de estilos compatibles con React-PDF y formateo regional.
+  * **DeepSeek:** se ha empleado de forma puntual para auditorías de código, enfocadas en detectar posibles problemas de rendimiento, memoria o concurrencia en funciones asíncronas del backend.
 
 ## 4. Configurar variables de entorno
 Este proyecto utiliza variables de entorno para gestionar configuraciones sensibles y dependientes del entorno de ejecución (desarrollo, producción, despliegue). Esto evita hardcodear URLs o credenciales dentro del código y facilita el despliegue en plataformas como Vercel.
