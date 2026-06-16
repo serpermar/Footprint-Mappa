@@ -44,6 +44,7 @@ export default function ReportDocument({
   return (
     <Document>
       <Page size="A4" style={pdfStyles.page}>
+        {/* ========== HEADER========== */}
         <View style={pdfStyles.header}>
           <View style={pdfStyles.headerLeft}>
             <Text style={pdfStyles.title}>
@@ -68,7 +69,9 @@ export default function ReportDocument({
             </Text>
           </View>
         ) : isOcf ? (
+          // ==========================================
           // ========== VISTA OCF ==========
+          // ==========================================
           <>
             <View style={pdfStyles.gridContainer}>
               <View style={[pdfStyles.card, { borderLeftColor: '#0D2C54' }]}>
@@ -94,20 +97,21 @@ export default function ReportDocument({
             {config.showCharts && (
               <>
                 <Text style={pdfStyles.sectionTitle}>Emissions Structure Baseline</Text>
-                {chartImages?.bar ? (
-                  <Image src={chartImages.bar} style={{ width: '100%', marginBottom: 10 }} />
-                ) : (
-                  <View style={pdfStyles.chartPlaceholder}>
-                    <Text style={pdfStyles.placeholderText}>
-                      [ Recharts Distribution Equivalent: Total Sustainability Impact{' '}
-                      {(ocfData?.total_emissions ?? 0).toLocaleString('de-DE')} tCO2e ]
-                    </Text>
-                  </View>
-                )}
-                {/* También mostramos el segundo gráfico si existe */}
-                {chartImages?.pie && (
-                  <Image src={chartImages.pie} style={{ width: '100%', marginBottom: 10 }} />
-                )}
+                <View style={pdfStyles.chartsFlexRow}>
+                  {chartImages?.bar ? (
+                    <Image src={chartImages.bar} style={{ flex: 1, height: 100, objectFit: 'contain' }} />
+                  ) : (
+                    <View style={pdfStyles.chartPlaceholder}>
+                      <Text style={pdfStyles.placeholderText}>
+                        [ Recharts Distribution Equivalent: Total Sustainability Impact{' '}
+                        {(ocfData?.total_emissions ?? 0).toLocaleString('de-DE')} tCO2e ]
+                      </Text>
+                    </View>
+                  )}
+                  {chartImages?.pie && (
+                    <Image src={chartImages.pie} style={{ flex: 1, height: 100, objectFit: 'contain' }} />
+                  )}
+                </View>
               </>
             )}
 
@@ -118,42 +122,42 @@ export default function ReportDocument({
                 </Text>
                 <View style={pdfStyles.table}>
                   <View style={pdfStyles.tableHeader}>
-                    <Text style={[pdfStyles.tableHeaderCell, { flex: 3 }]}>
+                    <Text style={[pdfStyles.tableHeaderCell, pdfStyles.cellDescription]}>
                       Operational Category & Scope Sources
                     </Text>
-                    <Text style={[pdfStyles.tableHeaderCell, { flex: 1, textAlign: 'right' }]}>
+                    <Text style={[pdfStyles.tableHeaderCell, pdfStyles.cellValue]}>
                       tCO2e
                     </Text>
                   </View>
                   <View style={pdfStyles.tableRow}>
-                    <Text style={[pdfStyles.tableCell, { flex: 3 }]}>
+                    <Text style={pdfStyles.cellDescription}>
                       Scope 1.1 Stationary Combustion (Boilers & Thermal Systems)
                     </Text>
-                    <Text style={[pdfStyles.tableCell, { flex: 1, textAlign: 'right' }]}>
+                    <Text style={pdfStyles.cellValue}>
                       {(ocfData?.scope_1_1_stationary_combustion ?? 0).toLocaleString('de-DE')}
                     </Text>
                   </View>
                   <View style={pdfStyles.tableRow}>
-                    <Text style={[pdfStyles.tableCell, { flex: 3 }]}>
+                    <Text style={pdfStyles.cellDescription}>
                       Scope 1.3 Industrial Process & Fugitive Emissions
                     </Text>
-                    <Text style={[pdfStyles.tableCell, { flex: 1, textAlign: 'right' }]}>
+                    <Text style={pdfStyles.cellValue}>
                       {(ocfData?.scope_1_3_process_emissions ?? 0).toLocaleString('de-DE')}
                     </Text>
                   </View>
                   <View style={pdfStyles.tableRow}>
-                    <Text style={[pdfStyles.tableCell, { flex: 3 }]}>
+                    <Text style={pdfStyles.cellDescription}>
                       Scope 2.1 Purchased Grid Electricity (High-Voltage Manufacturing)
                     </Text>
-                    <Text style={[pdfStyles.tableCell, { flex: 1, textAlign: 'right' }]}>
+                    <Text style={pdfStyles.cellValue}>
                       {(ocfData?.scope_2_1_1_purchased_electricity ?? 0).toLocaleString('de-DE')}
                     </Text>
                   </View>
                   <View style={pdfStyles.tableRow}>
-                    <Text style={[pdfStyles.tableCell, { flex: 3 }]}>
+                    <Text style={pdfStyles.cellDescription}>
                       Scope 3.1 Procurement of Raw Materials & Technical Yarns
                     </Text>
-                    <Text style={[pdfStyles.tableCell, { flex: 1, textAlign: 'right' }]}>
+                    <Text style={pdfStyles.cellValue}>
                       {(ocfData?.scope_3_1_1_raw_materials_or_auxiliary_materials ?? 0).toLocaleString('de-DE')}
                     </Text>
                   </View>
@@ -173,7 +177,9 @@ export default function ReportDocument({
             )}
           </>
         ) : (
+          // ==========================================
           // ========== VISTA PCF ==========
+          // ==========================================
           <>
             <View style={pdfStyles.gridContainer}>
               <View style={[pdfStyles.card, { borderLeftColor: '#0D2C54' }]}>
@@ -199,18 +205,20 @@ export default function ReportDocument({
             {config.showCharts && (
               <>
                 <Text style={pdfStyles.sectionTitle}>Product Life Cycle Distribution</Text>
-                {chartImages?.bar ? (
-                  <Image src={chartImages.bar} style={{ width: '100%', marginBottom: 10 }} />
-                ) : (
-                  <View style={pdfStyles.chartPlaceholder}>
-                    <Text style={pdfStyles.placeholderText}>
-                      [ Cradle-to-Gate Footprint: {(pcfData?.total_emissions ?? 0).toLocaleString('de-DE')} tCO2e per Functional Unit ]
-                    </Text>
-                  </View>
-                )}
-                {chartImages?.pie && (
-                  <Image src={chartImages.pie} style={{ width: '100%', marginBottom: 10 }} />
-                )}
+                <View style={pdfStyles.chartsFlexRow}>
+                  {chartImages?.bar ? (
+                    <Image src={chartImages.bar} style={{ flex: 1, height: 100, objectFit: 'contain' }} />
+                  ) : (
+                    <View style={pdfStyles.chartPlaceholder}>
+                      <Text style={pdfStyles.placeholderText}>
+                        [ Cradle-to-Gate Footprint: {(pcfData?.total_emissions ?? 0).toLocaleString('de-DE')} tCO2e per Functional Unit ]
+                      </Text>
+                    </View>
+                  )}
+                  {chartImages?.pie && (
+                    <Image src={chartImages.pie} style={{ flex: 1, height: 100, objectFit: 'contain' }} />
+                  )}
+                </View>
               </>
             )}
 
@@ -219,34 +227,34 @@ export default function ReportDocument({
                 <Text style={pdfStyles.sectionTitle}>ISO 14067 LCA Carbon Intensities</Text>
                 <View style={pdfStyles.table}>
                   <View style={pdfStyles.tableHeader}>
-                    <Text style={[pdfStyles.tableHeaderCell, { flex: 3 }]}>
+                    <Text style={[pdfStyles.tableHeaderCell, pdfStyles.cellDescription]}>
                       Lifecycle Assessment Stage (Cradle-to-Gate)
                     </Text>
-                    <Text style={[pdfStyles.tableHeaderCell, { flex: 1, textAlign: 'right' }]}>
+                    <Text style={[pdfStyles.tableHeaderCell, pdfStyles.cellValue]}>
                       kg CO2e
                     </Text>
                   </View>
                   <View style={pdfStyles.tableRow}>
-                    <Text style={[pdfStyles.tableCell, { flex: 3 }]}>
+                    <Text style={pdfStyles.cellDescription}>
                       Phase 1: Raw Polymer & Base Fiber Extraction
                     </Text>
-                    <Text style={[pdfStyles.tableCell, { flex: 1, textAlign: 'right' }]}>
+                    <Text style={pdfStyles.cellValue}>
                       {(pcfData?.['1_1_raw_materials'] ?? 0).toLocaleString('de-DE')}
                     </Text>
                   </View>
                   <View style={pdfStyles.tableRow}>
-                    <Text style={[pdfStyles.tableCell, { flex: 3 }]}>
+                    <Text style={pdfStyles.cellDescription}>
                       Phase 2: Manufacturing Electrical Loads & Thermal Processing
                     </Text>
-                    <Text style={[pdfStyles.tableCell, { flex: 1, textAlign: 'right' }]}>
+                    <Text style={pdfStyles.cellValue}>
                       {(pcfData?.['2_1_electricity_use_in_manufacturing'] ?? 0).toLocaleString('de-DE')}
                     </Text>
                   </View>
                   <View style={pdfStyles.tableRow}>
-                    <Text style={[pdfStyles.tableCell, { flex: 3 }]}>
+                    <Text style={pdfStyles.cellDescription}>
                       Phase 3: Inbound Logistics & Material Transportation
                     </Text>
-                    <Text style={[pdfStyles.tableCell, { flex: 1, textAlign: 'right' }]}>
+                    <Text style={pdfStyles.cellValue}>
                       {(pcfData?.total_transport ?? 0).toLocaleString('de-DE')}
                     </Text>
                   </View>
@@ -267,6 +275,7 @@ export default function ReportDocument({
           </>
         )}
 
+        {/* ========== FOOTER ========== */}
         <View style={pdfStyles.footer}>
           <Text>Powered by Footprint Mappa © 2026</Text>
           <Text>

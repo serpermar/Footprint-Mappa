@@ -195,14 +195,14 @@ export default function Dashboard() {
               onClick={() => setActiveTab('OCF')}
               className={activeTab === 'OCF' ? styles.tabButtonActive : styles.tabButtonInactive}
             >
-              <Building2 className="w-4 h-4" />
+              <Building2 className="w-10 h-10" />
               <span>Organisational CF (ISO 14064-1)</span>
             </button>
             <button
               onClick={() => setActiveTab('PCF')}
               className={activeTab === 'PCF' ? styles.tabButtonActive : styles.tabButtonInactive}
             >
-              <Package className="w-4 h-4" />
+              <Package className="w-10 h-10" />
               <span>Product CF (ISO 14067 LCA)</span>
             </button>
           </div>
