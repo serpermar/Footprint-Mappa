@@ -40,6 +40,36 @@ La aplicación utiliza una arquitectura desacoplada en la que la persistencia de
 - **Integración de servicios backend y funcionalidades basadas en IA:** 2,5 h (15%)
 - **Despliegue, pruebas, optimización y documentación:** 1,5 h (10%)
 
+## 2.5. Qué haría con más tiempo?
+Para llevar este prototipo a un producto SaaS sólido y preparado para entornos empresariales, trabajaría en tres áreas principales:
+
+* **🚀 Rendimiento y escalabilidad**
+
+Generación de informes en segundo plano:
+Actualmente, la generación de PDFs puede consumir bastantes recursos. Para mejorar el rendimiento y evitar que la interfaz se bloquee, trasladaría este proceso a servicios de backend que trabajen en segundo plano mediante colas de tareas.
+
+Sistema de caché para cálculos recurrentes:
+Implementaría una capa de caché que almacene los cálculos ya realizados de los distintos alcances de emisiones (Scope 1, 2 y 3). De esta forma, si los datos no han cambiado, el sistema puede reutilizar resultados existentes y reducir tiempos de respuesta y consumo de recursos.
+
+
+* **🛡️ Seguridad y calidad**
+
+Gestión de usuarios y permisos:
+Incorporaría autenticación y control de acceso por roles para diferenciar perfiles como administradores, gestores de planta o auditores, garantizando que cada usuario acceda únicamente a la información que le corresponde.
+
+Pruebas automatizadas de extremo a extremo:
+Desarrollaría una suite de pruebas con herramientas como Playwright o Cypress para asegurar que los informes generados mantengan su estructura, contenido y formato incluso después de cambios o nuevas funcionalidades.
+
+
+* **✨ Evolución del producto y experiencia de usuario**
+
+Configuraciones personalizadas persistentes:
+Permitiría que cada organización guardase sus propias plantillas, identidad visual y configuraciones de reporte para que todas las exportaciones mantengan automáticamente los estándares definidos por la compañía.
+
+Gestión flexible de factores de emisión:
+Añadiría un panel para actualizar o personalizar factores de conversión de CO₂e, así como integraciones con fuentes oficiales que permitan mantener estos datos actualizados de forma automática.
+
+
 ## 3. Transparencia en el Uso de Inteligencia Artificial
 El desarrollo se llevó a cabo bajo un modelo de ingeniería asistida por IA supervisada, combinando **Google Gemini (90%)** como copiloto táctico y **DeepSeek (10%)** para auditorías específicas.
 
